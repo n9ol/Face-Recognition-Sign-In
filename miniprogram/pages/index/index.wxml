@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="character" catchtap="onTapJumpStu">
+    <image class="avatar" src="/images/student.png"></image>
+    <text>学生</text>
+  </view>
+
+  <view class="character" catchtap="onTapJumpTea">
+    <image class="avatar" src="/images/teacher.png"></image>
+    <text>教师</text>
+  </view>
+
+  <view class="character" catchtap="onTapJumpAdm">
+    <image class="avatar" src="/images/admin.png"></image>
+    <text>管理员</text>
+  </view>
+
+  <image src="/images/scu.png" id="scuImg"></image>
+</view>

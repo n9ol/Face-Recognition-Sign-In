@@ -1,0 +1,11 @@
+/* pages/stuFace/stuFace.wxss */
+.page-body {
+  padding: 20rpx 0;
+}
+
+.below-camera-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

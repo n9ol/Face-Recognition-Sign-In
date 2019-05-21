@@ -1,0 +1,13 @@
+<!--pages/admLog/admLog.wxml-->
+<view class="">
+  <view class="login-image-area">
+    <image src="/images/scu.png" class="loginImage"></image>
+  </view>
+  <van-cell-group>
+    <van-field clearable label="账号" placeholder="请输入账号" size="large" />
+    <van-field clearable type="password" label="密码" placeholder="请输入密码" size="large" />
+    <view class="btn-area">
+      <van-button type="primary" size="large">登录</van-button>
+    </view>
+  </van-cell-group>
+</view>

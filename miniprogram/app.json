@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/stuLog/stuLog",
+    "pages/teaLog/teaLog",
+    "pages/admLog/admLog",
+    "pages/stuFace/stuFace"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "考场签到",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-field": "/dist/field/index",
+    "van-button": "/dist/button/index",
+    "van-popup": "/dist/popup/index"
+  }
+}

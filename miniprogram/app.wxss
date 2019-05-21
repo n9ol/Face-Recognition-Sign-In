@@ -1,0 +1,24 @@
+text {
+  font-family: Microsoft YaHei;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.btn-area {
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 40rpx;
+}
+
+.login-image-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100rpx;
+}
+
+.loginImage {
+  width: 200rpx;
+  height: 200rpx;
+}

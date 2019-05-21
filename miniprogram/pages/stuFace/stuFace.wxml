@@ -1,0 +1,15 @@
+<!--pages/stuFace/stuFace.wxml-->
+<view class="page-body">
+  <view class="camera-area">
+    <camera device-position="front" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera>
+  </view>
+
+  <view class="below-camera-area">
+    <view class="btn-area">
+      <van-button size="large" type="primary" bindtap="takePhoto">拍照</van-button>
+    </view>
+
+    <view>照片</view>
+    <image mode="widthFix" src="{{src}}"></image>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100rpx;
+}
+
+.avatar {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+text {
+  font-size: 40rpx
+}
+
+#scuImg {
+  margin-top: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
