@@ -13,6 +13,7 @@
     "navigationBarTitleText": "考场签到",
     "navigationBarTextStyle": "black"
   },
+  "cloud": true,
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-field": "/dist/field/index",
