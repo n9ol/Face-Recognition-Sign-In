@@ -1,15 +1,14 @@
 <!--pages/stuFace/stuFace.wxml-->
 <view class="page-body">
-  <view class="camera-area">
-    <camera device-position="front" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera>
-  </view>
-
   <view class="below-camera-area">
+    <image mode="aspectFill" src="{{src}}" id="upload-image-area"></image>
     <view class="btn-area">
-      <van-button size="large" type="primary" bindtap="takePhoto">拍照</van-button>
+      <van-button size="large" type="primary" bindtap="chooseImage">{{textOfButton}}</van-button>
     </view>
-
-    <view>照片</view>
-    <image mode="widthFix" src="{{src}}"></image>
+    <van-progress percentage="{{progress}}" id="progress-area"/>
+    <text>beauty: {{beauty}}</text>
+    <view class="btn-area">
+      <van-button size="large" type="info" bindtap="finished">完成</van-button>
+    </view>
   </view>
 </view>

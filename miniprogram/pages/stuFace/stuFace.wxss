@@ -1,4 +1,5 @@
 /* pages/stuFace/stuFace.wxss */
+
 .page-body {
   padding: 20rpx 0;
 }
@@ -8,4 +9,18 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+#upload-image-area {
+  width: 335px;
+  height: 335px;
+  background-color: #eee;
+  border: 0.1rpx dashed;
+  border-radius: 25rpx;
+  margin-bottom: 40rpx;
+}
+
+#progress-area {
+  align-self: stretch;
+  padding: 35rpx;
 }

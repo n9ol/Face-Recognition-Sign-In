@@ -4,7 +4,8 @@
     "pages/stuLog/stuLog",
     "pages/teaLog/teaLog",
     "pages/admLog/admLog",
-    "pages/stuFace/stuFace"
+    "pages/stuFace/stuFace",
+    "pages/stuInfo/stuInfo"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

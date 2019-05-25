@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-progress": "/dist/progress/index"
+  },
+  "navigationBarTitleText": "上传照片"
 }

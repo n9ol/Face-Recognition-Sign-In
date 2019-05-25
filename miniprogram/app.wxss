@@ -5,7 +5,6 @@ text {
 }
 
 .btn-area {
-  margin-top: 20rpx;
   box-sizing: border-box;
   width: 100%;
   padding: 40rpx;
