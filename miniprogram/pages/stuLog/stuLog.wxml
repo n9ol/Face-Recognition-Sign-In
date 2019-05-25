@@ -4,8 +4,8 @@
     <image src="/images/scu.png" class="loginImage"></image>
   </view>
   <van-cell-group>
-    <van-field bind:input="inputId" type="number" maxlength="13" clearable label="学号" placeholder="请输入学号" size="large" />
-    <van-field bind:input="inputPassword" type="password" clearable label="密码" placeholder="请输入密码" size="large" />
+    <van-field bind:blur="inputId" type="number" maxlength="13" clearable label="学号" placeholder="请输入学号" size="large" />
+    <van-field bind:blur="inputPassword" type="password" clearable label="密码" placeholder="请输入密码" size="large" />
     <view class="btn-area">
       <van-button type="primary" size="large" bind:click="login">登录</van-button>
     </view>

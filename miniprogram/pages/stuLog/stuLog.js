@@ -7,13 +7,13 @@ let stuPassword = null;
 
 Page({
   inputId(event) {
-    console.log(event.detail);
-    stuId = event.detail;
+    console.log(event.detail.value);
+    stuId = event.detail.value;
   },
 
   inputPassword(event) {
-    console.log(event.detail);
-    stuPassword = event.detail;
+    console.log(event.detail.value);
+    stuPassword = event.detail.value;
   },
 
   login() {
@@ -22,7 +22,7 @@ Page({
       password: stuPassword
     }).get({
       success(res) {
-        console.log("yes");
+        console.log("login-success");
         wx.redirectTo({
           url: '../stuFace/stuFace',
         });
