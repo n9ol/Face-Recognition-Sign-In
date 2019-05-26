@@ -1,10 +1,10 @@
 <view>
   <van-cell-group>
-    <van-field value="sb" center clearable label="人员库名称" placeholder="请输入人员库名称" border="{{ false }}" use-button-slot>
-      <van-button slot="button" size="small" type="primary">检查是否合法</van-button>
+    <van-field bind:input='inputName' center clearable label="人员库名称" placeholder="请输入人员库名称" border="{{ false }}" use-button-slot>
+      <van-button slot="button" size="small" type="primary" bind:click='isNameValid'>检查是否合法</van-button>
     </van-field>
-    <van-field value="250" center clearable label="人员库ID" placeholder="请输入人员库ID" border="{{ false }}" use-button-slot>
-      <van-button slot="button" size="small" type="primary">检查是否合法</van-button>
+    <van-field bind:input='inputID' center clearable label="人员库ID" placeholder="请输入人员库ID" border="{{ false }}" use-button-slot>
+      <van-button slot="button" size="small" type="primary" bind:click='isIDValid'>检查是否合法</van-button>
     </van-field>
   </van-cell-group>
   <view class='btn-area'>
