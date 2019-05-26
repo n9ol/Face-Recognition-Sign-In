@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-popup": "/dist/popup/index"
+  },
+  "navigationBarTitleText": "管理员，你好"
+}

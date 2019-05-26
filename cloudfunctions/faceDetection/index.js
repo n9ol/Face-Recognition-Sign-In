@@ -3,7 +3,7 @@ const tencentcloud = require("tencentcloud-sdk-nodejs");
 
 cloud.init();
 
-var synDetectFace = function(url) {
+var asyncDetectFace = function(url) {
   const IaiClient = tencentcloud.iai.v20180301.Client;
   const models = tencentcloud.iai.v20180301.Models;
 
@@ -22,6 +22,7 @@ var synDetectFace = function(url) {
 
   let params = '{"Url": "' + url + '", "NeedFaceAttributes": 1}'
   req.from_json_string(params);
+
   return new Promise(function(resolve, reject) {
     client.DetectFace(req, function(errMsg, response) {
       if (errMsg) {
@@ -40,14 +41,7 @@ exports.main = async(event, context) => {
     fileList,
   });
   const url = result.fileList[0].tempFileURL;
-  datas = await synDetectFace(url);
+  datas = await asyncDetectFace(url);
+  
   return datas;
-
-  // exports.main = async(event, context) => {
-  //   const fileList = ['cloud://test-p3dro.7465-test-p3dro/zhengJianZhao.jpg']
-  //   const result = await cloud.getTempFileURL({
-  //     fileList,
-  //   })
-  //   return result.fileList
-  // }
 }
