@@ -1,4 +1,5 @@
-// pages/stuLog/stuLog.js
+let app = getApp();
+
 const db = wx.cloud.database();
 const studentDB = db.collection('student');
 
@@ -18,28 +19,32 @@ Page({
 
   login() {
     studentDB.where({
-      id: stuId,
-      password: stuPassword
+      _openid: app.globalData.openid
     }).get({
       success(res) {
-        console.log("login-success");
-        wx.redirectTo({
-          url: '../stuFace/stuFace',
-        });
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 1000,
-          mask: true
-        });
-      },
-      fail() {
-        wx.showToast({
-          title: '失败',
-          icon: 'none',
-          duration: 1000,
-          mask: true
-        })
+        let userInfos = res.data;
+        console.log(userInfos);
+        if (userInfos && userInfos.length > 0) {
+          let user = userInfos[0];
+          console.log(user);
+          console.log(stuId + ' ' + stuPassword);
+          if ((user.id !== stuId) || (user.password !== stuPassword)) {
+            wx.showToast({
+              title: '账号或密码错误',
+              icon: 'none',
+              duration: 3000
+            });
+          } else {
+            console.log("login-success");
+            wx.redirectTo({
+              url: '../stuFace/stuFace',
+            });
+            wx.showToast({
+              title: '登陆成功',
+              duration: 3000
+            });
+          }
+        } else {}
       }
     })
   }
