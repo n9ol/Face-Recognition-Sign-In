@@ -4,7 +4,7 @@
     <image mode="aspectFill" src="{{src}}" id="upload-image-area"></image>
     <van-progress percentage="{{progress}}" color="green" id="progress-area"/>
     <view class="btn-area">
-      <van-button size="large" type="primary" bindtap="chooseImage">{{textOfButton}}</van-button>
+      <van-button size="large" type="primary" bindtap="chooseAndUploadImage">{{textOfButton}}</van-button>
     </view>
     <text>beauty: {{beauty}}</text>
     <view class="btn-area">

@@ -1,5 +1,6 @@
 const cloud = require('wx-server-sdk');
 const tencentcloud = require("tencentcloud-sdk-nodejs");
+
 cloud.init();
 
 var asyncCreateGroup = function(groupName, groupID) {
@@ -19,7 +20,7 @@ var asyncCreateGroup = function(groupName, groupID) {
 
   let req = new models.CreateGroupRequest();
 
-  let params = '{"GroupName":"' + groupName + '","GroupId":"' + groupID + '","GroupExDescriptions":["学号","密码"]}'
+  let params = '{"GroupName":"' + groupName + '","GroupId":"' + groupID + '"}'
   req.from_json_string(params);
 
   return new Promise(function(resolve, reject) {

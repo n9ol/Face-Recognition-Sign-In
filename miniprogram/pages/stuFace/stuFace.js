@@ -1,11 +1,19 @@
-// pages/stuFace/stuFace.js
+let app = getApp();
+const db = wx.cloud.database();
+const studentDb = db.collection('student');
+
+let name = null;
+let id = null;
+let fileId = null;
+let url = null;
+
 Page({
   data: {
     textOfButton: "上传图片",
     beauty: "",
     progress: 0,
   },
-  chooseImage() {
+  chooseAndUploadImage() {
     var that = this;
     var random = Date.parse(new Date()) + Math.ceil(Math.random() * 1000)
 
@@ -23,30 +31,40 @@ Page({
           filePath: res.tempFilePaths[0],
           success: res => {
             wx.showLoading({
-              title: '正在识别',
+              title: '上传至人员库',
             });
+            fileId = res.fileID;
             console.log(res.fileID);
+            studentDb.where({
+              _openid: app.globalData.openid
+            }).get({
+              success: res => {
+                console.log(res.data[0].name);
+                name = res.data[0].name;
+                id = res.data[0].id;
+              }
+            });
             wx.cloud.callFunction({
-              name: 'faceDetection',
+              name: 'createPerson',
               data: {
-                fileID: res.fileID
+                groupId: '001',
+                personName: name,
+                personId: id,
+                fileId: fileId
               },
               success: res => {
-                wx.hideLoading()
+                wx.hideLoading();
+                console.log(name);
+                console.log(id);
                 wx.showToast({
-                  title: '成功',
-                  icon: 'success',
-                  duration: 500
-                })
-                console.log(res.result);
-                that.setData({
-                  beauty: res.result.FaceInfos[0].FaceAttributesInfo.Beauty
-                })
+                  title: '上传完成',
+                });
+                console.log(res);
               },
               fail: err => {
                 console.log(err);
               }
-            })
+            });
           }
         });
         uploadTask.onProgressUpdate((res) => {
@@ -54,6 +72,7 @@ Page({
             progress: res.progress
           })
         })
+
       },
       fail: function(res) {
         console.log(res);
