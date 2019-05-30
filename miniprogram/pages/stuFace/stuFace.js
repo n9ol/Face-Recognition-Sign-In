@@ -2,8 +2,6 @@ let app = getApp();
 const db = wx.cloud.database();
 const studentDb = db.collection('student');
 
-let name = null;
-let id = null;
 let fileId = null;
 let url = null;
 
@@ -39,30 +37,30 @@ Page({
               _openid: app.globalData.openid
             }).get({
               success: res => {
-                console.log(res.data[0].name);
-                name = res.data[0].name;
-                id = res.data[0].id;
-              }
-            });
-            wx.cloud.callFunction({
-              name: 'createPerson',
-              data: {
-                groupId: '001',
-                personName: name,
-                personId: id,
-                fileId: fileId
-              },
-              success: res => {
-                wx.hideLoading();
-                console.log(name);
-                console.log(id);
-                wx.showToast({
-                  title: '上传完成',
+                const name = res.data[0].name;
+                const id = res.data[0].id;
+                wx.cloud.callFunction({
+                  name: 'createPerson',
+                  data: {
+                    groupId: '001',
+                    personName: name,
+                    personId: id,
+                    fileId: fileId
+                  },
+                  success: res => {
+                    wx.hideLoading();
+                    console.log(name);
+                    console.log(id);
+                    wx.showToast({
+                      title: '上传完成',
+                    });
+                    console.log(res);
+                  },
+                  fail: err => {
+                    wx,wx.hideLoading();
+                    console.log(err);
+                  }
                 });
-                console.log(res);
-              },
-              fail: err => {
-                console.log(err);
               }
             });
           }
