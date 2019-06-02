@@ -1,0 +1,11 @@
+<view class='page-body'>
+  <view class='page-body-wrapper'>
+    <camera flash='off' binderror='error' style='width: 100%; height: 300px'></camera>
+
+    <view class='btn-area'>
+      <van-button type="primary" size="large" bind:click="scan">检测</van-button>
+    </view>
+  </view>
+</view>
+
+

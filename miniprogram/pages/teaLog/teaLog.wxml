@@ -7,7 +7,7 @@
     <van-field clearable type="number" label="工号" placeholder="请输入工号" size="large" />
     <van-field clearable type="password" label="密码" placeholder="请输入密码" size="large" />
     <view class="btn-area">
-      <van-button type="primary" size="large">登录</van-button>
+      <van-button type="primary" size="large" bind:click="login">登录</van-button>
     </view>
   </van-cell-group>
 </view>

@@ -1,12 +1,14 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/stuLog/stuLog",
     "pages/teaLog/teaLog",
     "pages/admLog/admLog",
     "pages/stuFace/stuFace",
     "pages/stuInfo/stuInfo",
-    "pages/admAdm/admAdm"
+    "pages/admAdm/admAdm",
+    "pages/teaScan/teaScan"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
