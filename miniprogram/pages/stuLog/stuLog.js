@@ -36,9 +36,16 @@ Page({
             });
           } else {
             console.log("login-success");
-            wx.redirectTo({
-              url: '../stuFace/stuFace',
-            });
+            if (app.globalData.firstLogin) {
+              console.log("first-login");
+              wx.redirectTo({
+                url: '../stuFace/stuFace',
+              });
+            } else {
+              wx.redirectTo({
+                url: '../stuInfo/stuInfo',
+              })
+            }
             wx.showToast({
               title: '登陆成功',
               duration: 3000

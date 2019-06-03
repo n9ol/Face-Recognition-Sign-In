@@ -2,6 +2,7 @@ let app = getApp();
 const db = wx.cloud.database();
 const studentDb = db.collection('student');
 
+let faceId = null;
 let fileId = null;
 let url = null;
 
@@ -49,16 +50,72 @@ Page({
                   },
                   success: res => {
                     wx.hideLoading();
-                    console.log(name);
-                    console.log(id);
                     wx.showToast({
                       title: '上传完成',
                     });
                     console.log(res);
+                    if (!app.globalData.hasFace) {
+                      faceId = res.result.FaceId;
+                      app.globalData.hasFace = true;
+                    }
                   },
                   fail: err => {
-                    wx,wx.hideLoading();
+                    wx, wx.hideLoading();
                     console.log(err);
+                    if (err.Code = 'InvalidParameterValue.PersonIdAlreadyExist') {
+                      wx.showModal({
+                        title: '新的相片',
+                        content: '是否上传新的人脸？',
+                        success: res => {
+                          if (res.confirm) {
+                            wx.showLoading({
+                              title: '上传至人员库',
+                            });
+                            console.log('学生选择了确定');
+                            // 重新上传人脸 fileId personId
+                            wx.cloud.callFunction({
+                              name: 'createFace',
+                              data: {
+                                fileID: fileId,
+                                personId: id
+                              },
+                              success: res => {
+                                wx.hideLoading();
+                                wx.showToast({
+                                  title: '上传成功',
+                                });
+                                console.log(res);
+                                app.globalData.hasFace = true;
+                                wx.cloud.callFunction({
+                                  name: 'deleteFace',
+                                  data: {
+                                    personId: id,
+                                    faceId: faceId
+                                  },
+                                  success: res => {
+                                  },
+                                  fail: err => {
+                                    wx.hideLoading();
+                                    console.log(err);
+                                  }
+                                });
+                                faceId = res.result.FaceId;
+                              },
+                              fail: err => {
+                                wx.hideLoading();
+                                wx.showToast({
+                                  title: '上传失败',
+                                  icon: 'none'
+                                });
+                                console.log(err);
+                              }
+                            });
+                          } else if (res.cancel) {
+                            console.log('学生选择了否');
+                          }
+                        }
+                      })
+                    }
                   }
                 });
               }

@@ -1,6 +1,6 @@
 <view class='page-body'>
   <view class='page-body-wrapper'>
-    <camera flash='off' binderror='error' style='width: 100%; height: 300px'></camera>
+    <camera flash='off' device-position='front' binderror='error' style='width: 100%; height: 300px'></camera>
 
     <view class='btn-area'>
       <van-button type="primary" size="large" bind:click="scan">检测</van-button>

@@ -1,7 +1,9 @@
 //app.js
 App({
   globalData: {
-    openid: null
+    openid: null,
+    firstLogin: true,
+    hasFace: false
   },
 
   onLaunch: function() {
