@@ -1,7 +1,7 @@
 let app = getApp();
 
 const db = wx.cloud.database();
-const studentDB = db.collection('student');
+const stuDb = db.collection('student');
 
 let stuId = null;
 let stuPassword = null;
@@ -18,7 +18,7 @@ Page({
   },
 
   login() {
-    studentDB.where({
+    stuDb.where({
       _openid: app.globalData.openid
     }).get({
       success(res) {
@@ -36,22 +36,32 @@ Page({
             });
           } else {
             console.log("login-success");
-            if (app.globalData.firstLogin) {
-              console.log("first-login");
-              wx.redirectTo({
-                url: '../stuFace/stuFace',
-              });
-            } else {
-              wx.redirectTo({
-                url: '../stuInfo/stuInfo',
-              })
-            }
+            // if (app.globalData.firstLogin) {
+            //   console.log("first-login");
+            //   wx.redirectTo({
+            //     url: '../stuFace/stuFace',
+            //   });
+            //   app.globalData.firstLogin = false;
+            // } else {
+            //   wx.redirectTo({
+            //     url: '../stuInfo/stuInfo',
+            //   })
+            // }
+            wx.redirectTo({
+              url: '../stuFace/stuFace',
+            })
             wx.showToast({
               title: '登陆成功',
               duration: 3000
             });
           }
-        } else {}
+        } else {
+          wx.showToast({
+            title: '不存在该账号',
+            icon: 'none',
+            duration: 3000
+          });
+        }
       }
     })
   }

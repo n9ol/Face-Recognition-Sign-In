@@ -1,6 +1,6 @@
 let app = getApp();
 const db = wx.cloud.database();
-const studentDb = db.collection('student');
+const stuDb = db.collection('student');
 
 let faceId = null;
 let fileId = null;
@@ -34,7 +34,7 @@ Page({
             });
             fileId = res.fileID;
             console.log(res.fileID);
-            studentDb.where({
+            stuDb.where({
               _openid: app.globalData.openid
             }).get({
               success: res => {
@@ -60,7 +60,8 @@ Page({
                     }
                   },
                   fail: err => {
-                    wx, wx.hideLoading();
+                    wx,
+                    wx.hideLoading();
                     console.log(err);
                     if (err.Code = 'InvalidParameterValue.PersonIdAlreadyExist') {
                       wx.showModal({
@@ -92,8 +93,7 @@ Page({
                                     personId: id,
                                     faceId: faceId
                                   },
-                                  success: res => {
-                                  },
+                                  success: res => {},
                                   fail: err => {
                                     wx.hideLoading();
                                     console.log(err);

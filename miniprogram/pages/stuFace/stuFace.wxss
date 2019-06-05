@@ -12,8 +12,8 @@
 }
 
 #upload-image-area {
-  width: 335px;
-  height: 335px;
+  width: 675rpx;
+  height: 675rpx;
   background-color: #eee;
   border: 0.1rpx dashed;
   border-radius: 25rpx;

@@ -3,7 +3,8 @@ App({
   globalData: {
     openid: null,
     firstLogin: true,
-    hasFace: false
+    hasFace: false,
+    teaId: null
   },
 
   onLaunch: function() {

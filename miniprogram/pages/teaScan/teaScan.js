@@ -24,7 +24,7 @@ Page({
                 if (mostSimStu.Score > 50) {
                   console.log(res.result.Results['0']);
                   wx.showToast({
-                    title: '学号: ' + mostSimStu.PersonId + '\r\n置信度: ' + parseInt(mostSimStu.Score),
+                    title: '学号: ' + mostSimStu.PersonId + '\r\n置信度: ' + parseInt(mostSimStu.Score) + '%',
                     icon: 'none'
                   })
                 } else {

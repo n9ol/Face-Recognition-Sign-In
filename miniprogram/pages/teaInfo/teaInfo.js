@@ -1,11 +1,11 @@
 const app = getApp();
 const db = wx.cloud.database();
-const stuDb = db.collection('student');
+const teaDb = db.collection('teacher');
 
 Page({
   onLoad: function (options) {
-    stuDb.where({
-      _openid: app.globalData.openid
+    teaDb.where({
+      _id: app.globalData.teaId
     }).get({
       success: res => {
         wx.showLoading({
@@ -20,4 +20,9 @@ Page({
       }
     });
   },
+  enter() {
+    wx.navigateTo({
+      url: '../teaScan/teaScan',
+    })
+  }
 })

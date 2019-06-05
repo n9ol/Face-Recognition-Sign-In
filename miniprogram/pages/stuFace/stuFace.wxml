@@ -2,7 +2,7 @@
 <view class="page-body">
   <view class="below-camera-area">
     <image mode="aspectFill" src="{{src}}" id="upload-image-area"></image>
-    <van-progress percentage="{{progress}}" color="green" id="progress-area"/>
+    <van-progress percentage="{{progress}}" color="green" id="progress-area" />
     <view class="btn-area">
       <van-button size="large" type="primary" bindtap="chooseAndUploadImage">{{textOfButton}}</van-button>
     </view>

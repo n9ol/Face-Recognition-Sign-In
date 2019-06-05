@@ -3,6 +3,14 @@
   font-size: 30rpx;
 }
 
+.footer {
+  text-align: right;
+}
+
+.margin-right {
+  margin-left: 20rpx;
+}
+
 page {
   background: #f2f3f5;
 }

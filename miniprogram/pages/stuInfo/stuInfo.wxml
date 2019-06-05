@@ -1,3 +1,9 @@
-<!--pages/stuInfo/stuInfo.wxml-->
-<text>pages/stuInfo/stuInfo.wxml</text>
-<text>TODO: show students information</text>
+<view>
+  <block wx:for="{{examInfo}}">
+    <van-panel style="margin: 20rpx;" title="{{item.course}}" desc="{{item.time}}">
+      <view class="content">考场：{{item.examRoom}}
+        <view>座号：{{item.seatNum}}</view>
+      </view>
+    </van-panel>
+  </block>
+</view>

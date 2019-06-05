@@ -1,0 +1,11 @@
+<view>
+  <block wx:for="{{examInfo}}">
+    <van-panel style="margin: 20rpx;" title="{{item.course}}" desc="{{item.time}}" use-footer-slot>
+      <view class="content">考场：{{item.examRoom}}
+      </view>
+      <view slot="footer" class="footer">
+        <van-button size="small" class="margin-right" type="primary" bind:click="enter">进入考场</van-button>
+      </view>
+    </van-panel>
+  </block>
+</view>
