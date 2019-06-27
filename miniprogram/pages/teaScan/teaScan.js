@@ -21,7 +21,7 @@ Page({
               success: res => {
                 wx.hideLoading();
                 const mostSimStu = res.result.Results["0"].Candidates["0"]
-                if (mostSimStu.Score > 50) {
+                if (mostSimStu.Score > 85) {
                   console.log(res.result.Results['0']);
                   wx.showToast({
                     title: '学号: ' + mostSimStu.PersonId + '\r\n置信度: ' + parseInt(mostSimStu.Score) + '%',
